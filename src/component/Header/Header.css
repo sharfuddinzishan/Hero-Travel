@@ -3,21 +3,19 @@ Header Section
 */
 
 .navbar {
-    background: #fff;
+    background: #e3f2fd;
     border-bottom: 1px solid #eee;
 }
-
 .nav-link,
 .navbar-brand,
 .dropdown-menu{
-    color: #011627;
-    font-size:14px;
-    font-weight:lighter;
+    color: #ccd7df;
+    font-size:13px;
+    font-weight:bold;
 }
-
 .nav-link:hover,
 .navbar-brand:hover {
-    color: #777;
+    color: rgb(58, 118, 207);
 }
 
 .navbar-brand {

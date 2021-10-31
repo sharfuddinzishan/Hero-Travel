@@ -8,7 +8,7 @@ const Packages = () => {
     const [packages] = usePackages();
     return (
         <>
-            <section className="Packages-section">
+            <section className="Packages-section p-5">
                 <div className="container">
                     <div className="p-5">
                         <h2 className="section-title lh-1 fs-1 pb-3 fw-normal text-center">Hero <b>Travel Packages</b></h2>
