@@ -12,7 +12,7 @@ const Header = () => {
                 <nav className="navbar navbar-expand-lg" data-navbar-on-scroll="data-navbar-on-scroll">
                     <div className="container">
                         <Link className="navbar-brand" to="/">
-                            <img className="img-fluid h-25 w-25" src="" alt="Hero Health Care" />
+                            <img className="img-fluid h-25 w-25" src="" alt="Hero Travel" />
                         </Link>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -66,6 +66,16 @@ const Header = () => {
                                                         color: "#636"
                                                     }}>
                                                     My Tours
+                                                </NavLink>
+                                            </li>
+                                            <li className="nav-item">
+                                                <NavLink className="nav-link"
+                                                    to="/admin/tours"
+                                                    activeStyle={{
+                                                        fontWeight: "bold",
+                                                        color: "#636"
+                                                    }}>
+                                                    All Tours
                                                 </NavLink>
                                             </li>
                                             <li className="nav-item">

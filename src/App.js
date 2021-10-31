@@ -11,9 +11,11 @@ import AuthProvider from './context/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import NotFound from './component/NotFound/NotFound';
 import MyTours from './component/My Tours/MyTours';
-import PackageDetails from './component/PackageDetails/PackageDetails';
 import BookingForm from './component/BookingForm/BookingForm';
 import TourDetails from './component/TourDetails/TourDetails';
+import TourUpdates from './component/TourUpdates/TourUpdates';
+import BookingList from './component/Admin/BookingList/BookingList';
+import BookingUpdate from './component/Admin/BookingUpdate/BookingUpdate';
 
 function App() {
   return (
@@ -43,8 +45,17 @@ function App() {
             <PrivateRoute exact path="/user/tours">
               <MyTours />
             </PrivateRoute>
+            <PrivateRoute exact path="/admin/tours">
+              <BookingList />
+            </PrivateRoute>
             <PrivateRoute exact path="/user/tours/:TourBookingID">
               <TourDetails />
+            </PrivateRoute>
+            <PrivateRoute exact path="/user/tours/update/:TourBookingID">
+              <TourUpdates />
+            </PrivateRoute>
+            <PrivateRoute exact path="/admin/tours/update/:TourBookingID">
+              <BookingUpdate />
             </PrivateRoute>
             <Route path="/admin/add/tourpackage">
               <AddTourPackage />

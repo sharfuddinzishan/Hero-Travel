@@ -29,7 +29,6 @@ const BookingForm = () => {
             })
 
         const {
-            _id,
             title,
             days,
             nights,
@@ -47,7 +46,7 @@ const BookingForm = () => {
         data['bookingDate'] = today;
         data['bookingStatus'] = 'pending';
 
-        if (singlePackage?._id.length) {
+        if (singlePackage?.title) {
             axios.post('http://localhost:4000/booking', data)
                 .then(result => {
                     console.log(result)

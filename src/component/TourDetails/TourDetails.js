@@ -53,6 +53,10 @@ const TourDetails = () => {
                     <table class="table table-sm table-responsive">
                         <tbody className="package-info">
                             <tr>
+                                <th scope="row">Package</th>
+                                <td className="fs-3"><strong>{title}</strong></td>
+                            </tr>
+                            <tr>
                                 <th scope="row">Duration</th>
                                 <td>{duration}</td>
                             </tr>

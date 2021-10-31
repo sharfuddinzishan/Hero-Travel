@@ -1,3 +1,11 @@
 .errorInput{
     font-size: xx-small;
 }
+
+.my-tours-table thead tr th,.my-tours-table tr td{
+    font-size: 12px;
+}
+.bookingID{
+    font-size: xx-small;
+    font-weight: bold;
+}
