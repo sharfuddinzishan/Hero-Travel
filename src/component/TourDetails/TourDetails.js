@@ -7,7 +7,7 @@ const TourDetails = () => {
     const { TourBookingID } = useParams();
     const [Tour, setTour] = useState({});
     useEffect(() => {
-        axios.get(`http://localhost:4000/user/tour?bookingid=${TourBookingID}`)
+        axios.get(`https://spooky-grave-06095.herokuapp.com/user/tour?bookingid=${TourBookingID}`)
             .then(result => {
                 setTour(result.data);
             })

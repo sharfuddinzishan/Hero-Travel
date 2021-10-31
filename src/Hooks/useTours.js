@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 export const useTours = () => {
     const [allTours, setAllTours] = useState([]);
     useEffect(() => {
-        let url = "http://localhost:4000/tours";
+        let url = "https://spooky-grave-06095.herokuapp.com/tours";
         axios.get(url)
             .then(result => setAllTours(result.data))
     }, [])

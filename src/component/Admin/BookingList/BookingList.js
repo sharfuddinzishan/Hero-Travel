@@ -9,7 +9,7 @@ const BookingList = () => {
 
     useEffect(() => {
         setLoader(true);
-        axios.get(`http://localhost:4000/tours`)
+        axios.get(`https://spooky-grave-06095.herokuapp.com/tours`)
             .then(result => {
                 if (result.status === 200) {
                     setSingleUserTours(result.data);
@@ -24,7 +24,7 @@ const BookingList = () => {
         const prompt = window.confirm('Want To Cancel  Booking?');
         if (prompt === true) {
             setResult(false);
-            axios.put(`http://localhost:4000/user/tour/${bookingID}?action=cancel`)
+            axios.put(`https://spooky-grave-06095.herokuapp.com/user/tour/${bookingID}?action=cancel`)
                 .then(result => {
                     setResult(true)
                 })
@@ -39,7 +39,7 @@ const BookingList = () => {
         if (prompt === true) {
             console.log('hello')
             setResult(false);
-            axios.delete(`http://localhost:4000/user/tour/${bookingID}`)
+            axios.delete(`https://spooky-grave-06095.herokuapp.com/user/tour/${bookingID}`)
                 .then(result => {
                     setResult(true)
                 })
@@ -53,7 +53,7 @@ const BookingList = () => {
         const prompt = window.confirm('Want To Confirm Booking?');
         if (prompt === true) {
             setResult(false);
-            axios.put(`http://localhost:4000/user/tour/${bookingID}?action=confirm`)
+            axios.put(`https://spooky-grave-06095.herokuapp.com/user/tour/${bookingID}?action=confirm`)
                 .then(result => {
                     setResult(true)
                 })

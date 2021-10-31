@@ -11,7 +11,7 @@ const AddTourPackage = () => {
     const onSubmit = data => {
         setLoader(true);
         setInsertStatus(true);
-        axios.post('http://localhost:4000/packages', data)
+        axios.post('https://spooky-grave-06095.herokuapp.com/packages', data)
             .then(response => {
                 if (response.data.acknowledged) {
                     setInsertStatus(true);

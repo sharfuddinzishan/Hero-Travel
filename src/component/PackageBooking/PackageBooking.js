@@ -16,7 +16,7 @@ const PackageBooking = () => {
 
     useEffect(() => {
         setLoader(true);
-        axios.get(`http://localhost:4000/packages/${tourPackageID}`)
+        axios.get(`https://spooky-grave-06095.herokuapp.com/packages/${tourPackageID}`)
             .then(result => {
                 setSinglePackage(result.data);
                 setLoader(false);

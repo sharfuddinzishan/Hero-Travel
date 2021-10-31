@@ -65,11 +65,11 @@ const Header = () => {
                                                     My Tours
                                                 </NavLink>
                                             </li>
-                                            <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <li className="nav-item dropdown">
+                                                <button className="btn btn-sm btn-primary nav-link dropdown-toggle" id="navbarDarkDropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                                                     Admin
-                                                </a>
-                                                <ul class="dropdown-menu " aria-labelledby="navbarDarkDropdownMenuLink">
+                                                </button>
+                                                <ul className="dropdown-menu " aria-labelledby="navbarDarkDropdownMenuLink">
                                                     <li className="dropdown-item">
                                                         <NavLink className="nav-link"
                                                             to="/admin/add/tourpackage"

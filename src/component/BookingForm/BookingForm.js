@@ -11,7 +11,7 @@ const BookingForm = () => {
     const [packageTitles, setPackageTitles] = useState([]);
     const [singlePackage, setSinglePackage] = useState({});
     useEffect(() => {
-        axios.get('http://localhost:4000/titles')
+        axios.get('https://spooky-grave-06095.herokuapp.com/titles')
             .then(result => {
                 setPackageTitles(result.data);
             })
@@ -23,7 +23,7 @@ const BookingForm = () => {
 
     const onSubmit = (data) => {
         const tourPackageID = data.packageID;
-        axios.get(`http://localhost:4000/packages/${tourPackageID}`)
+        axios.get(`https://spooky-grave-06095.herokuapp.com/packages/${tourPackageID}`)
             .then(result => {
                 setSinglePackage(result.data);
             })
@@ -47,7 +47,7 @@ const BookingForm = () => {
         data['bookingStatus'] = 'pending';
 
         if (singlePackage?.title) {
-            axios.post('http://localhost:4000/booking', data)
+            axios.post('https://spooky-grave-06095.herokuapp.com/booking', data)
                 .then(result => {
                     alert('Inserted Order')
                 })

@@ -11,7 +11,7 @@ const BookingUpdate = () => {
     const history = useHistory();
     useEffect(() => {
         setLoader(true);
-        axios.get(`http://localhost:4000/user/tour?bookingid=${TourBookingID}`)
+        axios.get(`https://spooky-grave-06095.herokuapp.com/user/tour?bookingid=${TourBookingID}`)
             .then(result => {
                 setTour(result.data);
                 setLoader(false);
@@ -176,7 +176,7 @@ const BookingUpdate = () => {
 
     const handleUpdateForm = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:4000/user/tour/update/${TourBookingID}?role=admin`, Tour)
+        axios.put(`https://spooky-grave-06095.herokuapp.com/user/tour/update/${TourBookingID}?role=admin`, Tour)
             .then(result => {
                 alert('Order Successfully Updated')
                 history.push(`/admin/tours`);
@@ -191,7 +191,7 @@ const BookingUpdate = () => {
     // }
 
     // const onSubmit = (data) => {
-    //     axios.put(`http://localhost:4000/user/tour/update/${TourBookingID}`, data)
+    //     axios.put(`https://spooky-grave-06095.herokuapp.com/user/tour/update/${TourBookingID}`, data)
     //         .then(result => {
     //             alert('Updated Order')
     //         })

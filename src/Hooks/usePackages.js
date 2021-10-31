@@ -6,7 +6,7 @@ export const usePackages = () => {
     const [loader, setLoader] = useState(false);
     useEffect(() => {
         setLoader(true);
-        let url = "http://localhost:4000/packages";
+        let url = "https://spooky-grave-06095.herokuapp.com/packages";
         axios.get(url)
             .then(result => {
                 setPackages(result.data)

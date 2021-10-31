@@ -10,7 +10,7 @@ const UpdatePackage = () => {
     const history = useHistory();
     useEffect(() => {
         setLoader(true);
-        axios.get(`http://localhost:4000/packages/${PackageID}`)
+        axios.get(`https://spooky-grave-06095.herokuapp.com/packages/${PackageID}`)
             .then(result => {
                 setPackagesList(result.data);
                 setLoader(false);
@@ -181,7 +181,7 @@ const UpdatePackage = () => {
 
     const handleUpdateForm = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:4000/admin/package/update/${PackageID}`, PackagesList)
+        axios.put(`https://spooky-grave-06095.herokuapp.com/admin/package/update/${PackageID}`, PackagesList)
             .then(result => {
                 alert('Package Successfully Updated')
                 history.push(`/admin/packages`);

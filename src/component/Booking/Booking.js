@@ -33,7 +33,7 @@ const Booking = (props) => {
         data['places'] = places;
         data['bookingDate'] = today;
         data['bookingStatus'] = 'pending';
-        axios.post('http://localhost:4000/booking', data)
+        axios.post('https://spooky-grave-06095.herokuapp.com/booking', data)
             .then(result => {
                 alert('Inserted Order', data?.title)
             })
