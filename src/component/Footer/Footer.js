@@ -1,98 +1,79 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
     return (
         <>
             <section className="footer-section" style={{ backgroundColor: '#E9ECEF' }}>
-                <footer class="">
-                    <div class="text-muted p-5">
-                        <div class="container">
-                            <div class="row">
-                                <div class="mb-5 mb-lg-0 col-lg-4">
-                                    <div class="font-weight-bold text-uppercase text-dark mb-3">
+                <footer className="">
+                    <div className="text-muted p-5">
+                        <div className="container">
+                            <div className="row">
+                                <div className="mb-5 mb-lg-0 col-lg-4">
+                                    <div className="font-weight-bold text-uppercase text-dark mb-3">
                                         Directory
                                     </div>
-                                    <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <a href="#" target="_blank" title="twitter" class="text-muted text-hover-primary">
-                                                <i class="fab fa-twitter"></i>
+                                    <p className="">Go, Explore With Us.</p>
+                                    <ul className="list-inline">
+                                        <li className="list-inline-item">
+                                            <a href="http://www.twitter.com/hero-travel" rel="noreferrer" target="_blank" title="twitter" className="bx bx-tada text-muted text-hover-primary">
+                                                <i className="fab fa-twitter"></i>
                                             </a>
                                         </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" target="_blank" title="facebook" class="text-muted text-hover-primary">
-                                                <i class="fab fa-facebook"></i>
+                                        <li className="list-inline-item">
+                                            <a href="http://www.facebook.com/hero-travel" rel="noreferrer" target="_blank" title="facebook" className="bx bx-tada text-muted text-hover-primary">
+                                                <i className="fab fa-facebook"></i>
                                             </a>
                                         </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" target="_blank" title="instagram" class="text-muted text-hover-primary">
-                                                <i class="fab fa-instagram"></i>
+                                        <li className="list-inline-item">
+                                            <a href="http://www.instagram.com/hero-travel" rel="noreferrer" target="_blank" title="instagram" className="bx bx-tada text-muted text-hover-primary">
+                                                <i className="fab fa-instagram"></i>
                                             </a>
                                         </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" target="_blank" title="pinterest" class="text-muted text-hover-primary">
-                                                <i class="fab fa-pinterest"></i>
+                                        <li className="list-inline-item">
+                                            <a href="http://www.pinterest.com/hero-travel" rel="noreferrer" target="_blank" title="pinterest" className="bx bx-tada text-muted text-hover-primary">
+                                                <i className="fab fa-pinterest"></i>
                                             </a>
                                         </li>
-                                        <li class="list-inline-item">
-                                            <a href="#" target="_blank" title="vimeo" class="text-muted text-hover-primary">
-                                                <i class="fab fa-vimeo"></i>
+                                        <li className="list-inline-item">
+                                            <a href="http://www.vimeo.com/hero-travel" rel="noreferrer" target="_blank" title="vimeo" className="bx bx-tada text-muted text-hover-primary">
+                                                <i className="fab fa-vimeo"></i>
                                             </a>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="mb-5 mb-lg-0 col-md-6 col-lg-2">
-                                    <div class="font-weight-bold text-uppercase text-dark mb-3">
-                                        Rentals
-                                    </div>
-                                    <ul class="list-unstyled">
-                                        <li>
-                                            <a class="text-muted" href="/">Rooms</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-muted" href="/category-rooms">Map on top</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-muted" href="/category-2-rooms">Side map</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-muted" href="/category-3-rooms">No map</a>
-                                        </li>
-                                        <li>
-                                            <a class="text-muted" href="/detail-rooms">Room detail</a>
-                                        </li>
-                                    </ul></div><div class="mb-5 mb-lg-0 col-md-6 col-lg-2">
-                                    <div class="font-weight-bold text-uppercase text-dark mb-3">
+                                <div className="mb-5 mb-lg-0 col-md-6 col-lg-2">
+                                    <div className="font-weight-bold text-uppercase text-dark mb-3">
                                         Pages
                                     </div>
-                                    <ul class="list-unstyled">
+                                    <ul className="list-unstyled">
                                         <li>
-                                            <a class="text-muted" href="/compare">Comparison</a>
+                                            <Link className="text-decoration-none text-muted" to="/">Home</Link>
                                         </li>
                                         <li>
-                                            <a class="text-muted" href="/team">Team</a>
+                                            <Link className="text-decoration-none text-muted" to="/packages">Our Packages</Link>
                                         </li>
                                         <li>
-                                            <a class="text-muted" href="/contact">Contact</a>
+                                            <Link className="text-decoration-none text-muted" to="/contact">Contact</Link>
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="mb-5 mb-lg-0 col-lg-4">
-                                    <div class="font-weight-bold text-uppercase text-dark mb-3">
-                                        Daily Offers &amp; Discounts
+                                <div className="mb-5 mb-lg-0 col-lg-4 ms-auto">
+                                    <div className="font-weight-bold text-uppercase text-dark mb-3">
+                                        Subscribed Us &amp; Enjoy Discounts
                                     </div>
-                                    <p class="mb-3">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.
+                                    <p className="mb-3">
+                                        Unlimited Choices. Great Support &amp; Service. Best Prices. Happy Memories.
                                     </p>
-                                    <form id="newsletter-form" class="">
-                                        <div class="input-group mb-3">
+                                    <form className="" action="#">
+                                        <div className="input-group mb-3">
                                             <input type="email" placeholder="Your Email Address"
                                                 aria-label="Your Email Address"
-                                                class="bg-transparent border-dark border-right-0 form-control" />
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn-outline-dark border-left-0 btn btn-deoco">
-                                                    <i class="fa fa-paper-plane text-lg"></i>
+                                                className="border-dark form-control" />
+                                            <div className="input-group-append">
+                                                <button type="submit" className="btn-outline-dark btn">
+                                                    <i className='bx bx-md bxs-paper-plane bx-flashing' ></i>
                                                 </button>
                                             </div>
                                         </div>
@@ -101,33 +82,33 @@ const Footer = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="py-4 fw-bold bg-dark text-muted">
-                        <div class="container">
-                            <div class="align-items-center row">
-                                <div class="text-center text-md-start col-md-6">
-                                    <p class="fs-6">© 2020, Your company. All rights reserved.</p>
+                    <div className="py-4 fw-bold bg-light text-muted">
+                        <div className="container">
+                            <div className="align-items-center row">
+                                <div className="text-center text-md-start col-md-6">
+                                    <p className="fs-6">© 2020, Your company. All rights reserved.</p>
                                 </div>
-                                <div class="col-md-6">
-                                    <ul class="list-inline mb-0 mt-2 text-center text-md-end">
-                                        <li class="list-inline-item">
+                                <div className="col-md-6">
+                                    <ul className="list-inline mb-0 mt-2 text-center text-md-end">
+                                        <li className="list-inline-item">
                                             <img
-                                                src="https://seeklogo.com/images/M/mastercard-logo-38C4789CCA-seeklogo.com.png" alt=""
-                                                width="32" height="32" class="" />
+                                                src="https://i.ibb.co/Qr6GDKt/ow718a.png" alt="Mastercard"
+                                                width="32" height="32" title="Mastercard" className="bx bx-tada" />
                                         </li>
-                                        <li class="list-inline-item">
+                                        <li className="list-inline-item">
                                             <img
-                                                src="https://seeklogo.com/images/M/mastercard-logo-38C4789CCA-seeklogo.com.png"
-                                                width="32" height="32" alt="..." class="" />
+                                                src="https://i.ibb.co/JpNv0bh/ow7FrG.png"
+                                                width="32" height="32" alt="Visa Card" title="Visa" className="bx bx-tada" />
                                         </li>
-                                        <li class="list-inline-item">
+                                        <li className="list-inline-item">
                                             <img
-                                                src="https://seeklogo.com/images/M/mastercard-logo-38C4789CCA-seeklogo.com.png"
-                                                width="32" height="32" alt="..." class="" />
+                                                src="https://i.ibb.co/Rj31sDF/5a3559b6b1a966-2399139715134458147277.png"
+                                                width="32" height="32" alt="Paypal" title="Paypal" className="bx bx-tada" />
                                         </li>
-                                        <li class="list-inline-item">
+                                        <li className="list-inline-item">
                                             <img
-                                                src="https://seeklogo.com/images/M/mastercard-logo-38C4789CCA-seeklogo.com.png"
-                                                width="32" height="32" alt="..." class="" />
+                                                src="https://i.ibb.co/mz5cMyt/BKash-Logo-wine.png"
+                                                width="32" height="32" alt="Bkash" title="Bkash" className="bx bx-tada" />
                                         </li>
                                     </ul>
                                 </div>

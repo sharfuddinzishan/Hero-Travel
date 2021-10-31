@@ -27,9 +27,6 @@ const Header = () => {
                                 <li className="nav-item">
                                     <Link className="nav-link" to="/packages">Tour Packages</Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link className="nav-link" to="/admin/add/tourpackage">Add Tour Package</Link>
-                                </li>
                                 {
                                     !user?.email &&
                                     <>
@@ -68,15 +65,42 @@ const Header = () => {
                                                     My Tours
                                                 </NavLink>
                                             </li>
-                                            <li className="nav-item">
-                                                <NavLink className="nav-link"
-                                                    to="/admin/tours"
-                                                    activeStyle={{
-                                                        fontWeight: "bold",
-                                                        color: "#636"
-                                                    }}>
-                                                    All Tours
-                                                </NavLink>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    Admin
+                                                </a>
+                                                <ul class="dropdown-menu " aria-labelledby="navbarDarkDropdownMenuLink">
+                                                    <li className="dropdown-item">
+                                                        <NavLink className="nav-link"
+                                                            to="/admin/add/tourpackage"
+                                                            activeStyle={{
+                                                                fontWeight: "bold",
+                                                                color: "#636"
+                                                            }}>
+                                                            Add Package
+                                                        </NavLink>
+                                                    </li>
+                                                    <li className="dropdown-item">
+                                                        <NavLink className="nav-link"
+                                                            to="/admin/packages"
+                                                            activeStyle={{
+                                                                fontWeight: "bold",
+                                                                color: "#636"
+                                                            }}>
+                                                            All Packages
+                                                        </NavLink>
+                                                    </li>
+                                                    <li className="dropdown-item">
+                                                        <NavLink className="nav-link"
+                                                            to="/admin/tours"
+                                                            activeStyle={{
+                                                                fontWeight: "bold",
+                                                                color: "#636"
+                                                            }}>
+                                                            All Tours
+                                                        </NavLink>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li className="nav-item">
                                                 <NavLink onClick={logOut} className="nav-link"
@@ -90,7 +114,7 @@ const Header = () => {
                                             </li>
                                             {/* Display User name if provided otherwise show anonymousUser  */}
                                             <li className="nav-item">
-                                                <Link className="nav-link disabled" to="/" tabindex="-1" aria-disabled="true">
+                                                <Link className="nav-link disabled" to="/" tabIndex="-1" aria-disabled="true">
                                                     {user?.displayName ? user.displayName : 'AnonymousUser'}
                                                 </Link>
                                             </li>

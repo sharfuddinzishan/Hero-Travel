@@ -1,6 +1,6 @@
 import axios from 'axios';
 import moment from 'moment';
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
 import './Booking.css';
@@ -35,7 +35,6 @@ const Booking = (props) => {
         data['bookingStatus'] = 'pending';
         axios.post('http://localhost:4000/booking', data)
             .then(result => {
-                console.log(result)
                 alert('Inserted Order', data?.title)
             })
             .catch(e => { alert('Inserted Error') })

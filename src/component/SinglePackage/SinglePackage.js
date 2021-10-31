@@ -9,13 +9,14 @@ const SinglePackage = (props) => {
         title,
         days,
         nights,
-        price,
-        besttime,
         places,
-        attraction,
         theme: coverImage,
-        overview,
-        highlights } = props.singlepackage || {}
+        // overview,
+        // highlights,
+        // attraction,
+        // price,
+        // besttime 
+    } = props.singlepackage || {}
 
     // Generate PackageDetails URL 
     const detailsPagePath = `/packages/${packageID}?page=packagebooking`
@@ -24,7 +25,7 @@ const SinglePackage = (props) => {
             <div className="card h-100">
                 <div className="row g-0 p-0 m-0">
                     <div className="col-12 col-sm-4">
-                        <img src={coverImage} className="img-fluid w-100" alt="No Image Found" />
+                        <img src={coverImage} className="img-fluid w-100" alt="Not Found" />
                     </div>
                     <div className="col-12 col-sm-8">
                         <div className="card-body">

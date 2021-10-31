@@ -12,7 +12,6 @@ const PackageBooking = () => {
     const [loader, setLoader] = useState(false);
     // get packageID from path of url route
     const { tourPackageID } = useParams();
-    console.log('id ', tourPackageID)
     const [singlePackage, setSinglePackage] = useState({});
 
     useEffect(() => {
@@ -24,9 +23,9 @@ const PackageBooking = () => {
             })
             .catch(e => { setLoader(false) })
             .finally(() => { setLoader(false) });
-    }, []);
+    }, [tourPackageID]);
     const {
-        _id: packageID,
+        // _id: packageID,
         title,
         days,
         nights,
@@ -34,10 +33,10 @@ const PackageBooking = () => {
         besttime,
         places,
         attraction,
-        theme: coverImage,
+        // theme: coverImage,
         overview,
         highlights } = singlePackage || {}
-    console.log('Single package: ', singlePackage)
+
     return (
         <>
             <div className="container-fluid p-5">
@@ -47,7 +46,7 @@ const PackageBooking = () => {
                         :
                         <div className="row">
                             <div className="col-12 col-md-5">
-                                <table class="table table-sm table-responsive">
+                                <table className="table table-sm table-responsive">
                                     <tbody className="package-info">
                                         <tr>
                                             <th scope="row">Duration</th>
@@ -84,25 +83,25 @@ const PackageBooking = () => {
                                     :
                                     (
                                         <div className="col-12 col-md-5">
-                                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img src="https://www.shikhar.com/images/gallery/tours/462/Andaman%20Shikhar%20Travels1.jpg" class="d-block w-100 img-fluid" alt="..." />
+                                            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+                                                <div className="carousel-inner">
+                                                    <div className="carousel-item active">
+                                                        <img src="https://www.shikhar.com/images/gallery/tours/462/Andaman%20Shikhar%20Travels1.jpg" className="d-block w-100 img-fluid" alt="..." />
                                                     </div>
-                                                    <div class="carousel-item">
-                                                        <img src="https://www.shikhar.com/images/gallery/tours/462/Andaman%20Shikhar%20Travels.jpg" class="d-block w-100 img-fluid" alt="..." />
+                                                    <div className="carousel-item">
+                                                        <img src="https://www.shikhar.com/images/gallery/tours/462/Andaman%20Shikhar%20Travels.jpg" className="d-block w-100 img-fluid" alt="..." />
                                                     </div>
-                                                    <div class="carousel-item">
-                                                        <img src="https://www.shikhar.com/images/gallery/tours/462/Andaman%20Shikhar%20Travels2.jpg" class="d-block w-100 img-fluid" alt="..." />
+                                                    <div className="carousel-item">
+                                                        <img src="https://www.shikhar.com/images/gallery/tours/462/Andaman%20Shikhar%20Travels2.jpg" className="d-block w-100 img-fluid" alt="..." />
                                                     </div>
                                                 </div>
-                                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Previous</span>
+                                                <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                                                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span className="visually-hidden">Previous</span>
                                                 </button>
-                                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Next</span>
+                                                <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                                                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span className="visually-hidden">Next</span>
                                                 </button>
                                             </div>
                                         </div>

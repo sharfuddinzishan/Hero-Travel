@@ -49,7 +49,6 @@ const BookingForm = () => {
         if (singlePackage?.title) {
             axios.post('http://localhost:4000/booking', data)
                 .then(result => {
-                    console.log(result)
                     alert('Inserted Order')
                 })
                 .catch(e => { alert('Inserted Error') })
@@ -57,15 +56,16 @@ const BookingForm = () => {
     }
     return (
         <div className="booking-section p-5">
-            <h6 className="text-center"><b>Hero Travel</b> is your one stop destination for the best budget holiday tours.</h6>
+            <h3 className="text-center section-title">Booked/Submit Your Query</h3>
+            <h6 className="text-center pb-3"><b>Hero Travel</b> is your one stop destination for the best budget holiday tours.</h6>
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-8 mx-auto">
                         <form className="d-flex flex-column gap-2" onSubmit={handleSubmit(onSubmit)}>
                             <select {...register("packageID")}>
                                 {
-                                    packageTitles?.map(pd => {
-                                        return <option value={pd?._id}>{pd?.title}</option>
+                                    packageTitles?.map((pd, index) => {
+                                        return <option key={index} value={pd?._id}>{pd?.title}</option>
                                     })
                                 }
                             </select>

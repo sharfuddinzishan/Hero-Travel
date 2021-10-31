@@ -14,23 +14,21 @@ const MyTours = () => {
         setLoader(true);
         axios.get(`http://localhost:4000/user/bookingshistory?q=${user?.email}`)
             .then(result => {
-                if (result.status == 200) {
+                if (result.status === 200) {
                     setSingleUserTours(result.data);
                     setLoader(false);
                 }
             })
             .catch(e => { })
             .finally(() => { setLoader(false) });
-    }, [getResult]);
+    }, [getResult, user?.email]);
 
     const handleCancel = bookingID => {
         const prompt = window.confirm('Want To Cancel  Booking?');
-        if (prompt == true) {
-            console.log('hello')
+        if (prompt === true) {
             setResult(false);
             axios.put(`http://localhost:4000/user/tour/${bookingID}`)
                 .then(result => {
-                    console.log(result)
                     setResult(true)
                 })
                 .finally(() => {
@@ -41,7 +39,7 @@ const MyTours = () => {
 
     const handleDelete = bookingID => {
         const prompt = window.confirm('Want To Delete?');
-        if (prompt == true) {
+        if (prompt === true) {
             console.log('hello')
             setResult(false);
             axios.delete(`http://localhost:4000/user/tour/${bookingID}`)
@@ -57,13 +55,13 @@ const MyTours = () => {
 
     return (
         <div className="container-fluid p-5">
-            <h1 className="text-center">My Booked Tour Packages</h1>
+            <h1 className="text-center section-title pb-3">My Booked Tour Packages</h1>
             <div className="row">
                 <div className="col-12 table-responsive">
                     {
                         loader ? <span>Please Wait, Data loading in processing</span>
                             :
-                            <table class="my-tours-table table table-striped table-hover table-sm align-middle">
+                            <table className="my-tours-table table table-striped table-hover table-sm align-middle">
                                 <thead>
                                     <tr>
                                         <th scope="col">#</th>
@@ -86,106 +84,100 @@ const MyTours = () => {
                                         getSingleUserTours.map((singleTour, index) => {
                                             const {
                                                 _id: bookingID,
-                                                userCountry,
-                                                fullName,
-                                                email: emailID,
                                                 journeyDate,
                                                 adults,
                                                 children,
                                                 contactNo,
-                                                message,
                                                 packageID,
                                                 title,
-                                                duration,
                                                 price,
-                                                places,
                                                 bookingDate,
                                                 bookingStatus,
-                                                finalPrice
+                                                finalPrice,
+                                                // duration,
+                                                // userCountry,
+                                                // fullName,
+                                                // email: emailID,
+                                                // message,
+                                                // places
                                             } = singleTour || {};
                                             const totalMember = parseInt(adults) + (parseInt(children) || 0);
-                                            return <>
-                                                <tr>
-                                                    <th scope="row">{index + 1}</th>
-                                                    <td>
-                                                        <Link to={`/user/tours/${bookingID}`}
-                                                            class="btn btn-sm btn-primary w-100">
-                                                            <span class="bookingID">{bookingID}</span></Link>
-                                                    </td>
-                                                    <td><Link to={`/packages/${packageID}?page=packagedetails`}>{title}</Link></td>
-                                                    <td>{bookingDate}</td>
-                                                    <td>{journeyDate}</td>
-                                                    <td>{totalMember}</td>
-                                                    <td>{contactNo}</td>
-                                                    <td>{price}</td>
-                                                    <td>{finalPrice}</td>
-                                                    <td>{bookingStatus}</td>
-                                                    {
-                                                        bookingStatus === 'pending' &&
-                                                        (
-                                                            <td>
-                                                                <button onClick={() => handleCancel(bookingID)}
-                                                                    className="btn btn-sm btn-warning text-danger fw-bold">
-                                                                    X</button>
-                                                            </td>
-                                                        )
-                                                    }
-                                                    {
-                                                        bookingStatus !== 'pending' &&
-                                                        (
-                                                            <td>
-                                                                <button disabled
-                                                                    className="btn btn-sm btn-warning text-muted fw-bold">
-                                                                    X</button>
-                                                            </td>
-                                                        )
-                                                    }
-                                                    {
-                                                        bookingStatus === 'pending' && bookingStatus !== 'confirm' &&
-                                                        (
-                                                            <td>
-                                                                <Link to={`/user/tours/update/${bookingID}`}
-                                                                    class="btn btn-sm btn-primary w-100">
-                                                                    Update</Link>
-                                                            </td>
-                                                        )
-                                                    }
-                                                    {
-                                                        bookingStatus === 'cancel' || bookingStatus === 'confirm' ? (
-                                                            <td>
-                                                                <Link
-                                                                    to='#'
-                                                                    disabled
-                                                                    class="btn btn-sm btn-secondary text-light w-100">
-                                                                    Update</Link>
-                                                            </td>
-                                                        )
-                                                            : ''
-                                                    }
-
-                                                    {
-                                                        bookingStatus !== 'confirm' &&
-                                                        (
-                                                            <td>
-                                                                <button onClick={() => handleDelete(bookingID)}
-                                                                    className="btn btn-sm btn-warning text-danger fw-bold">
-                                                                    DELETE</button>
-                                                            </td>
-                                                        )
-                                                    }
-                                                    {
-                                                        bookingStatus === 'confirm' &&
-                                                        (
-                                                            <td>
-                                                                <button disabled
-                                                                    className="btn btn-sm btn-warning text-muted fw-bold">
-                                                                    DELETE</button>
-                                                            </td>
-                                                        )
-                                                    }
-
-                                                </tr>
-                                            </>
+                                            return <tr key={index}>
+                                                <th scope="row">{index + 1}</th>
+                                                <td>
+                                                    <Link to={`/user/tours/${bookingID}`} className="btn btn-sm btn-primary w-100">
+                                                        <span className="bookingID">{bookingID}</span></Link>
+                                                </td>
+                                                <td><Link to={`/packages/${packageID}?page=packagedetails`}>{title}</Link></td>
+                                                <td>{bookingDate}</td>
+                                                <td>{journeyDate}</td>
+                                                <td>{totalMember}</td>
+                                                <td>{contactNo}</td>
+                                                <td>{price}</td>
+                                                <td>{finalPrice}</td>
+                                                <td>{bookingStatus}</td>
+                                                {
+                                                    bookingStatus === 'pending' &&
+                                                    (
+                                                        <td>
+                                                            <button onClick={() => handleCancel(bookingID)}
+                                                                className="btn btn-sm btn-warning text-danger fw-bold">
+                                                                X</button>
+                                                        </td>
+                                                    )
+                                                }
+                                                {
+                                                    bookingStatus !== 'pending' &&
+                                                    (
+                                                        <td>
+                                                            <button disabled
+                                                                className="btn btn-sm btn-warning text-muted fw-bold">
+                                                                X</button>
+                                                        </td>
+                                                    )
+                                                }
+                                                {
+                                                    bookingStatus === 'pending' && bookingStatus !== 'confirm' &&
+                                                    (
+                                                        <td>
+                                                            <Link to={`/user/tours/update/${bookingID}`}
+                                                                className="btn btn-sm btn-primary w-100">
+                                                                Update</Link>
+                                                        </td>
+                                                    )
+                                                }
+                                                {
+                                                    (bookingStatus === 'cancel' || bookingStatus === 'confirm') && (
+                                                        <td>
+                                                            <Link
+                                                                to='#'
+                                                                disabled
+                                                                className="btn btn-sm btn-secondary text-light w-100">
+                                                                Update</Link>
+                                                        </td>
+                                                    )
+                                                }
+                                                {
+                                                    bookingStatus !== 'confirm' &&
+                                                    (
+                                                        <td>
+                                                            <button onClick={() => handleDelete(bookingID)}
+                                                                className="btn btn-sm btn-warning text-danger fw-bold">
+                                                                DELETE</button>
+                                                        </td>
+                                                    )
+                                                }
+                                                {
+                                                    bookingStatus === 'confirm' &&
+                                                    (
+                                                        <td>
+                                                            <button disabled
+                                                                className="btn btn-sm btn-warning text-muted fw-bold">
+                                                                DELETE</button>
+                                                        </td>
+                                                    )
+                                                }
+                                            </tr>
                                         })}
                                 </tbody>
                             </table>

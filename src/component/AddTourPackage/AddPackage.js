@@ -13,12 +13,10 @@ const AddTourPackage = () => {
         setInsertStatus(true);
         axios.post('http://localhost:4000/packages', data)
             .then(response => {
-                console.log(response)
                 if (response.data.acknowledged) {
                     setInsertStatus(true);
                     reset();
                     setLoader(false);
-                    console.log('Form Reset')
                 }
             })
             .catch(e => { setInsertStatus(false); })
@@ -27,7 +25,7 @@ const AddTourPackage = () => {
 
     return (
         <div className="add-service-section p-5 container">
-            <h1 className="text-center">Add Tour Packages Here</h1>
+            <h1 className="section-title text-center">Add Tour Packages Here</h1>
             {!insertStatus ? <span>Sorry, Insert Operation Failed, try again please</span> : ''}
             <div className="row">
                 <div className="col-12 col-md-10 mx-auto">

@@ -45,7 +45,7 @@ const PackageDetails = () => {
                         :
                         <div className="row">
                             <div className="col-12 col-sm-5">
-                                <table class="table table-sm table-responsive">
+                                <table className="table table-sm table-responsive">
                                     <tbody className="package-info">
                                         <tr>
                                             <th scope="row">Duration</th>

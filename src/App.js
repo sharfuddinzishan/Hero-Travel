@@ -16,6 +16,8 @@ import TourDetails from './component/TourDetails/TourDetails';
 import TourUpdates from './component/TourUpdates/TourUpdates';
 import BookingList from './component/Admin/BookingList/BookingList';
 import BookingUpdate from './component/Admin/BookingUpdate/BookingUpdate';
+import UpdatePackage from './component/Admin/UpdatePackage/UpdatePackage';
+import PackageList from './component/Admin/PackageList/PackageList';
 
 function App() {
   return (
@@ -48,6 +50,9 @@ function App() {
             <PrivateRoute exact path="/admin/tours">
               <BookingList />
             </PrivateRoute>
+            <PrivateRoute exact path="/admin/packages">
+              <PackageList />
+            </PrivateRoute>
             <PrivateRoute exact path="/user/tours/:TourBookingID">
               <TourDetails />
             </PrivateRoute>
@@ -59,6 +64,9 @@ function App() {
             </PrivateRoute>
             <Route path="/admin/add/tourpackage">
               <AddTourPackage />
+            </Route>
+            <Route path="/admin/packages/update/:PackageID">
+              <UpdatePackage />
             </Route>
             <Route path="*">
               <NotFound></NotFound>
