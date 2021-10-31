@@ -18,6 +18,8 @@ import BookingList from './component/Admin/BookingList/BookingList';
 import BookingUpdate from './component/Admin/BookingUpdate/BookingUpdate';
 import UpdatePackage from './component/Admin/UpdatePackage/UpdatePackage';
 import PackageList from './component/Admin/PackageList/PackageList';
+import Contact from './component/Contact/Contact';
+import AboutUs from './component/AboutUS/AboutUs';
 
 function App() {
   return (
@@ -35,6 +37,12 @@ function App() {
             <Route exact path="/account">
               <Account></Account>
             </Route>
+            <Route exact path="/contact">
+              <Contact></Contact>
+            </Route>
+            <Route exact path="/about">
+              <AboutUs></AboutUs>
+            </Route>
             <Route exact path="/packages">
               <Packages />
             </Route>
@@ -44,14 +52,9 @@ function App() {
             <PrivateRoute exact path="/booking">
               <BookingForm />
             </PrivateRoute>
+            {/* USER PART */}
             <PrivateRoute exact path="/user/tours">
               <MyTours />
-            </PrivateRoute>
-            <PrivateRoute exact path="/admin/tours">
-              <BookingList />
-            </PrivateRoute>
-            <PrivateRoute exact path="/admin/packages">
-              <PackageList />
             </PrivateRoute>
             <PrivateRoute exact path="/user/tours/:TourBookingID">
               <TourDetails />
@@ -59,15 +62,22 @@ function App() {
             <PrivateRoute exact path="/user/tours/update/:TourBookingID">
               <TourUpdates />
             </PrivateRoute>
+            {/* Admin Part  */}
+            <PrivateRoute exact path="/admin/tours">
+              <BookingList />
+            </PrivateRoute>
+            <PrivateRoute path="/admin/add/tourpackage">
+              <AddTourPackage />
+              <PrivateRoute exact path="/admin/packages">
+                <PackageList />
+              </PrivateRoute>
+            </PrivateRoute>
+            <PrivateRoute path="/admin/packages/update/:PackageID">
+              <UpdatePackage />
+            </PrivateRoute>
             <PrivateRoute exact path="/admin/tours/update/:TourBookingID">
               <BookingUpdate />
             </PrivateRoute>
-            <Route path="/admin/add/tourpackage">
-              <AddTourPackage />
-            </Route>
-            <Route path="/admin/packages/update/:PackageID">
-              <UpdatePackage />
-            </Route>
             <Route path="*">
               <NotFound></NotFound>
             </Route>

@@ -6,8 +6,9 @@ import './MyTours.css'
 
 const MyTours = () => {
     const { user } = useAuth();
-    const [getSingleUserTours, setSingleUserTours] = useState([]);
+    // Used Loader for wait until data loaded from server 
     const [loader, setLoader] = useState(false);
+    const [getSingleUserTours, setSingleUserTours] = useState([]);
     const [getResult, setResult] = useState(true);
 
     useEffect(() => {
@@ -116,6 +117,7 @@ const MyTours = () => {
                                                 <td>{price}</td>
                                                 <td>{finalPrice}</td>
                                                 <td>{bookingStatus}</td>
+                                                {/* If Booking Status Pending then cancel button active */}
                                                 {
                                                     bookingStatus === 'pending' &&
                                                     (
@@ -146,6 +148,7 @@ const MyTours = () => {
                                                         </td>
                                                     )
                                                 }
+                                                {/* Disable Update Button, if Booking is Cancel or confirm  */}
                                                 {
                                                     (bookingStatus === 'cancel' || bookingStatus === 'confirm') && (
                                                         <td>
@@ -167,6 +170,7 @@ const MyTours = () => {
                                                         </td>
                                                     )
                                                 }
+                                                {/* if Booking Confirm, then not allowed to Delete  */}
                                                 {
                                                     bookingStatus === 'confirm' &&
                                                     (

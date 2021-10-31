@@ -7,8 +7,10 @@ import Booking from '../Booking/Booking';
 import { Tab } from 'react-bootstrap';
 
 const PackageBooking = () => {
+    // Get Query Parameter 
     let query = new URLSearchParams(useLocation().search);
     let queryParams = query.get('page');
+    // Set Loader 
     const [loader, setLoader] = useState(false);
     // get packageID from path of url route
     const { tourPackageID } = useParams();

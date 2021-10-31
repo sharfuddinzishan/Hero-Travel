@@ -5,6 +5,7 @@ import './TourDetails.css'
 
 const TourDetails = () => {
     const { TourBookingID } = useParams();
+    // State for specific tour details 
     const [Tour, setTour] = useState({});
     useEffect(() => {
         axios.get(`https://spooky-grave-06095.herokuapp.com/user/tour?bookingid=${TourBookingID}`)
@@ -33,10 +34,10 @@ const TourDetails = () => {
                                 <img src="https://www.shikhar.com/images/gallery/tours/462/Andaman%20Shikhar%20Travels1.jpg" className="d-block w-100 img-fluid" alt="..." />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://www.shikhar.com/images/gallery/tours/462/Andaman%20Shikhar%20Travels.jpg" className="d-block w-100 img-fluid" alt="..." />
+                                <img src="https://nijhoom.b-cdn.net/wp-content/uploads/images/tour_photos/sylhet-srimangal-tours/srimangal-day-tour/srimangal-day-tour-cover-600x338-o.jpg" className="d-block w-100 img-fluid" alt="..." />
                             </div>
                             <div className="carousel-item">
-                                <img src="https://www.shikhar.com/images/gallery/tours/462/Andaman%20Shikhar%20Travels2.jpg" className="d-block w-100 img-fluid" alt="..." />
+                                <img src="https://nijhoom.com/bangladesh-tour/dhaka-photography-tour/shipyards-posing-kids-jumping/" className="d-block w-100 img-fluid" alt="..." />
                             </div>
                         </div>
                         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

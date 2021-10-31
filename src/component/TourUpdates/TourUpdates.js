@@ -14,6 +14,7 @@ const TourUpdates = () => {
         message: ''
     });
     const history = useHistory();
+    // Load Specific Booking Details when TourBookingID set from useParam 
     useEffect(() => {
         setLoader(true);
         axios.get(`https://spooky-grave-06095.herokuapp.com/user/tour?bookingid=${TourBookingID}`)
@@ -25,16 +26,7 @@ const TourUpdates = () => {
             .finally(() => { setLoader(false) });
     }, [TourBookingID]);
 
-    // const {
-    //     email,
-    //     // journeyDate,
-    //     // adults,
-    //     // children,
-    //     // contactNo,
-    //     // message,
-    //     // title
-    // } = Tour || {}
-
+    // Moment JS 
     const today = moment().format('YYYY-MM-DD');
     // const tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
     const deadline = moment().add(6, 'months').format('YYYY-MM-DD');
@@ -106,15 +98,6 @@ const TourUpdates = () => {
             })
             .catch(e => { alert('Inserted Error') })
     };
-
-    // const onSubmit = (data) => {
-    //     axios.put(`https://spooky-grave-06095.herokuapp.com/user/tour/update/${TourBookingID}`, data)
-    //         .then(result => {
-    //             alert('Updated Order')
-    //         })
-    //         .catch(e => { alert('Inserted Error') })
-    // };
-
 
     return (
         <div className="booking-section container p-5">

@@ -7,6 +7,7 @@ const BookingList = () => {
     const [loader, setLoader] = useState(false);
     const [getResult, setResult] = useState(true);
 
+    // Get All Booking List 
     useEffect(() => {
         setLoader(true);
         axios.get(`https://spooky-grave-06095.herokuapp.com/tours`)
@@ -20,6 +21,7 @@ const BookingList = () => {
             .finally(() => { setLoader(false) });
     }, [getResult]);
 
+    // Used Query Parameter action, by this API can know is it cancel or confirm action 
     const handleCancel = bookingID => {
         const prompt = window.confirm('Want To Cancel  Booking?');
         if (prompt === true) {
@@ -34,12 +36,11 @@ const BookingList = () => {
         }
     }
 
-    const handleDelete = bookingID => {
-        const prompt = window.confirm('Want To Delete?');
+    const handleConfirm = bookingID => {
+        const prompt = window.confirm('Want To Confirm Booking?');
         if (prompt === true) {
-            console.log('hello')
             setResult(false);
-            axios.delete(`https://spooky-grave-06095.herokuapp.com/user/tour/${bookingID}`)
+            axios.put(`https://spooky-grave-06095.herokuapp.com/user/tour/${bookingID}?action=confirm`)
                 .then(result => {
                     setResult(true)
                 })
@@ -49,11 +50,11 @@ const BookingList = () => {
         }
     }
 
-    const handleConfirm = bookingID => {
-        const prompt = window.confirm('Want To Confirm Booking?');
+    const handleDelete = bookingID => {
+        const prompt = window.confirm('Want To Delete?');
         if (prompt === true) {
             setResult(false);
-            axios.put(`https://spooky-grave-06095.herokuapp.com/user/tour/${bookingID}?action=confirm`)
+            axios.delete(`https://spooky-grave-06095.herokuapp.com/user/tour/${bookingID}`)
                 .then(result => {
                     setResult(true)
                 })
@@ -144,7 +145,7 @@ const BookingList = () => {
                                                             </td>
                                                         )
                                                 }
-
+                                                {/* If Booking is confirm then CONFIRM button will be disabled  */}
                                                 {
                                                     bookingStatus !== 'confirm' ?
                                                         (

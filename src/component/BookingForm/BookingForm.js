@@ -7,8 +7,11 @@ import './BookingForm.css'
 
 const BookingForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    // Get Firebase Authentication 
     const { user } = useAuth();
+    // Get All Title of packages for dropdown 
     const [packageTitles, setPackageTitles] = useState([]);
+    // State for specific package details 
     const [singlePackage, setSinglePackage] = useState({});
     useEffect(() => {
         axios.get('https://spooky-grave-06095.herokuapp.com/titles')
@@ -17,6 +20,7 @@ const BookingForm = () => {
             })
     }, [])
 
+    // To Get Today Tomorrow date used Moment JS 
     const today = moment().format('YYYY-MM-DD');
     const tomorrow = moment().add(1, 'days').format('YYYY-MM-DD');
     const deadline = moment().add(6, 'months').format('YYYY-MM-DD');
